@@ -27,4 +27,9 @@ model tb_event {
   cnpj         String
   nome_matriz  String
   filial       String
+  zona         String @default("patio")
+
+  @@index([cnpj])
+  @@index([filial])
+  @@index([zona])
 }
