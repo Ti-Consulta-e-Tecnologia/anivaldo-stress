@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,8 +7,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model tb_event {
+  id           Int    @id @default(autoincrement())
+  objet_id     Int
+  channel_id   String
+  channel_name String
+  event_name   String
+  event_origin String
+  event_time   String
+  event_type   String
+  rule_id      String
+  rule_name    String
+  is_send_api  String
+  is_send_csv  String
+  velocity     Float
+  position_x   Float
+  position_y   Float
+  token        String
+  cnpj         String
+  nome_matriz  String
+  filial       String
 }
