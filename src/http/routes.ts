@@ -108,4 +108,10 @@ export async function appRoutes(app: FastifyInstance) {
       reply.status(200).send({ datas })
     },
   )
+
+  app.get('/contagem', async (request: FastifyRequest, reply: FastifyReply) => {
+    const count = await prisma.tb_event.count()
+
+    reply.status(200).send({ count })
+  })
 }
