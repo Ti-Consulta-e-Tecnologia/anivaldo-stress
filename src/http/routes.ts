@@ -9,7 +9,7 @@ export async function appRoutes(app: FastifyInstance) {
 
   app.get('/token', token)
 
-  app.post('/stress', async (request: FastifyRequest, reply: FastifyReply) => {
+  app.get('/stress', async (request: FastifyRequest, reply: FastifyReply) => {
     const zonas = [
       'fundo',
       'patio',
