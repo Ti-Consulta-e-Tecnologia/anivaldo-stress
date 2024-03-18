@@ -81,21 +81,7 @@ export async function appRoutes(app: FastifyInstance) {
         where: {
           cnpj,
         },
-      })
-
-      reply.status(200).send({ datas })
-    },
-  )
-
-  app.get(
-    '/contagem/cnpj/:cnpj',
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const { cnpj } = request.params as any
-
-      const datas = await prisma.tb_event.count({
-        where: {
-          cnpj,
-        },
+        take: 20,
       })
 
       reply.status(200).send({ datas })
@@ -111,21 +97,7 @@ export async function appRoutes(app: FastifyInstance) {
         where: {
           filial,
         },
-      })
-
-      reply.status(200).send({ datas })
-    },
-  )
-
-  app.get(
-    '/contagem/filial/:filial',
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const { filial } = request.params as any
-
-      const datas = await prisma.tb_event.count({
-        where: {
-          filial,
-        },
+        take: 20,
       })
 
       reply.status(200).send({ datas })
@@ -141,21 +113,7 @@ export async function appRoutes(app: FastifyInstance) {
         where: {
           zona,
         },
-      })
-
-      reply.status(200).send({ datas })
-    },
-  )
-
-  app.get(
-    '/contagem/zona/:zona',
-    async (request: FastifyRequest, reply: FastifyReply) => {
-      const { zona } = request.params as any
-
-      const datas = await prisma.tb_event.count({
-        where: {
-          zona,
-        },
+        take: 20,
       })
 
       reply.status(200).send({ datas })
@@ -179,6 +137,7 @@ export async function appRoutes(app: FastifyInstance) {
           cnpj,
           zona,
         },
+        take: 20,
       })
 
       reply.status(200).send({
