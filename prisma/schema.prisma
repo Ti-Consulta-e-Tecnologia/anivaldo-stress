@@ -30,6 +30,7 @@ model tb_event {
   zona         String   @default("patio")
   created_at   DateTime @default(now())
 
+  @@index([created_at])
   @@index([cnpj])
   @@index([filial])
   @@index([zona])

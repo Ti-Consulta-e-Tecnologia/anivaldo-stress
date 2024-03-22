@@ -113,6 +113,9 @@ export async function appRoutes(app: FastifyInstance) {
         where: {
           zona,
         },
+        orderBy: {
+          created_at: 'asc',
+        },
         take: 20,
       })
 
@@ -127,15 +130,25 @@ export async function appRoutes(app: FastifyInstance) {
   })
 
   app.get(
-    '/todos/:zona/:filial/:cnpj',
+    '/todos/:zona/:filial/:cnpj/:startDate/:endDate',
     async (request: FastifyRequest, reply: FastifyReply) => {
-      const { zona, filial, cnpj } = request.params as any
+      const { zona, filial, cnpj, startDate, endDate } = request.params as any
+
+      const from = new Date(startDate)
+
+      const to = new Date(endDate)
+
+      console.log({ from, to })
 
       const result = await prisma.tb_event.findMany({
         where: {
           filial,
           cnpj,
           zona,
+          created_at: {
+            gte: new Date(startDate),
+            lte: new Date(endDate),
+          },
         },
         take: 20,
       })
