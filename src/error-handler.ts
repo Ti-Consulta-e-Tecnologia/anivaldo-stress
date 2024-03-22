@@ -19,5 +19,7 @@ export async function errorHandler(
     // TODO Here we should logo to an extrernal tool like Datadog/NwRelic/Sentry
   }
 
+  console.log(error)
+
   return reply.status(500).send({ message: 'Internal server error' })
 }

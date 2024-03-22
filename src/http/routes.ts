@@ -165,7 +165,7 @@ export async function appRoutes(app: FastifyInstance) {
   )
 
   app.get(
-    '/todosNormal/:zona/:filial/:cnpj',
+    '/normal/:zona/:filial/:cnpj',
     async (request: FastifyRequest, reply: FastifyReply) => {
       const { zona, filial, cnpj } = request.params as any
 
