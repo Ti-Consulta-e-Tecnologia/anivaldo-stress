@@ -132,7 +132,10 @@ export async function appRoutes(app: FastifyInstance) {
   app.get(
     '/todos/:zona/:filial/:cnpj/:startDate/:endDate',
     async (request: FastifyRequest, reply: FastifyReply) => {
+      console.log('entrou na funcao')
       const { zona, filial, cnpj, startDate, endDate } = request.params as any
+
+      console.log({ zona, filial, cnpj, startDate, endDate })
 
       const from = new Date(startDate)
 
