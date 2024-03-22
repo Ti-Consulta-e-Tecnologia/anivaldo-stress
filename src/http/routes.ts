@@ -113,6 +113,7 @@ export async function appRoutes(app: FastifyInstance) {
         where: {
           zona,
         },
+        // oie
         orderBy: {
           created_at: 'asc',
         },
