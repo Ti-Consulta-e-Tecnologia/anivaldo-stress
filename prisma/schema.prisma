@@ -8,7 +8,7 @@ datasource db {
 }
 
 model tb_event {
-  id           Int    @id @default(autoincrement())
+  id           Int      @id @default(autoincrement())
   objet_id     Int
   channel_id   String
   channel_name String
@@ -27,7 +27,8 @@ model tb_event {
   cnpj         String
   nome_matriz  String
   filial       String
-  zona         String @default("patio")
+  zona         String   @default("patio")
+  created_at   DateTime @default(now())
 
   @@index([cnpj])
   @@index([filial])
