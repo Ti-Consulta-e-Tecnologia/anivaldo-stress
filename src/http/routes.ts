@@ -158,4 +158,24 @@ export async function appRoutes(app: FastifyInstance) {
       })
     },
   )
+
+  app.get(
+    '/todos/:zona/:filial/:cnpj/:startDate/:endDate',
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      const { zona, filial, cnpj } = request.params as any
+
+      const result = await prisma.tb_event.findMany({
+        where: {
+          filial,
+          cnpj,
+          zona,
+        },
+        take: 20,
+      })
+
+      reply.status(200).send({
+        result,
+      })
+    },
+  )
 }
