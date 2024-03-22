@@ -156,6 +156,8 @@ export async function appRoutes(app: FastifyInstance) {
         take: 20,
       })
 
+      console.log({ result })
+
       reply.status(200).send({
         result,
       })
@@ -163,7 +165,7 @@ export async function appRoutes(app: FastifyInstance) {
   )
 
   app.get(
-    '/todos/:zona/:filial/:cnpj',
+    '/todosNormal/:zona/:filial/:cnpj',
     async (request: FastifyRequest, reply: FastifyReply) => {
       const { zona, filial, cnpj } = request.params as any
 
